@@ -1,19 +1,14 @@
 package com.rubenpla.jetpackcomposeproject
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -21,11 +16,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCompositionContext
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -41,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    MyColumn()
                 }
             }
         }
@@ -49,15 +42,64 @@ class MainActivity : ComponentActivity() {
 }
 
 @Preview(name = "PREVIEW 1",
-    heightDp = 50,
     showBackground = true,
     showSystemUi = true,
-    apiLevel = 27,
+    apiLevel = 33,
     device = Devices.PIXEL_3A_XL)
 @Composable
 fun defaultPreview() {
     JetPackComposeProjectTheme {
-        MyBox()
+        Column {
+            MyColumn()
+            //MyBox()
+        }
+    }
+}
+
+@Composable
+fun MyColumn() {
+    Column(
+        Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.SpaceBetween) {
+
+        Text ("Text 1", modifier = Modifier.background(Color.Gray))
+        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 3", modifier = Modifier.background(Color.Gray))
+        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 5", modifier = Modifier.background(Color.Gray))
+        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 1", modifier = Modifier.background(Color.Gray))
+        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 3", modifier = Modifier.background(Color.Gray))
+        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 5", modifier = Modifier.background(Color.Red))
+        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 1", modifier = Modifier.background(Color.Gray))
+        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 3", modifier = Modifier.background(Color.Gray))
+        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 5", modifier = Modifier.background(Color.Gray))
+        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 1", modifier = Modifier.background(Color.Gray))
+        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 3", modifier = Modifier.background(Color.Gray))
+        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 5", modifier = Modifier.background(Color.Red))
+        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 1", modifier = Modifier.background(Color.Gray))
+        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 3", modifier = Modifier.background(Color.Gray))
+        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 5", modifier = Modifier.background(Color.Gray))
+        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 1", modifier = Modifier.background(Color.Gray))
+        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 3", modifier = Modifier.background(Color.Gray))
+        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text ("Text 5", modifier = Modifier.background(Color.Gray))
+        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
     }
 }
 
