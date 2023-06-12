@@ -4,10 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -50,8 +54,67 @@ class MainActivity : ComponentActivity() {
 fun defaultPreview() {
     JetPackComposeProjectTheme {
         Column {
-            MyColumn()
+            MyComplexLayout()
+            //MyColumn()
             //MyBox()
+        }
+    }
+}
+
+@Composable
+fun MyComplexLayout() {
+    Column(Modifier.fillMaxSize()) {
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Cyan),
+            contentAlignment = Alignment.Center
+        ) {
+
+            Text(text = "Box 2 Text")
+        }
+
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.DarkGray)
+        ) {
+
+            Box(
+                Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Red),
+                contentAlignment = Alignment.Center
+            ) {
+
+                Text(text = "Box 2 Text")
+            }
+            Box(
+                Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Green),
+                contentAlignment = Alignment.Center
+            ) {
+
+                Text(text = "Box 2 Text")
+            }
+        }
+
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.LightGray),
+            contentAlignment = Alignment.BottomCenter
+        ) {
+
+            Text(text = "Box 2 Text")
         }
     }
 }
@@ -62,44 +125,116 @@ fun MyColumn() {
         Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()),
-        verticalArrangement = Arrangement.SpaceBetween) {
+        verticalArrangement = Arrangement.SpaceBetween
+    ) {
 
-        Text ("Text 1", modifier = Modifier.background(Color.Gray))
-        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 3", modifier = Modifier.background(Color.Gray))
-        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 5", modifier = Modifier.background(Color.Gray))
-        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 1", modifier = Modifier.background(Color.Gray))
-        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 3", modifier = Modifier.background(Color.Gray))
-        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 5", modifier = Modifier.background(Color.Red))
-        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 1", modifier = Modifier.background(Color.Gray))
-        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 3", modifier = Modifier.background(Color.Gray))
-        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 5", modifier = Modifier.background(Color.Gray))
-        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 1", modifier = Modifier.background(Color.Gray))
-        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 3", modifier = Modifier.background(Color.Gray))
-        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 5", modifier = Modifier.background(Color.Red))
-        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 1", modifier = Modifier.background(Color.Gray))
-        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 3", modifier = Modifier.background(Color.Gray))
-        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 5", modifier = Modifier.background(Color.Gray))
-        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 1", modifier = Modifier.background(Color.Gray))
-        Text ("Text 2", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 3", modifier = Modifier.background(Color.Gray))
-        Text ("Text 4", modifier = Modifier.background(Color.LightGray))
-        Text ("Text 5", modifier = Modifier.background(Color.Gray))
-        Text ("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Red))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Red))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+    }
+}
+
+@Composable
+fun MyRow() {
+    Row(
+        Modifier
+            .fillMaxSize()
+            .horizontalScroll(rememberScrollState())
+    ) {
+
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Red))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Red))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
+        Text("Text 1", modifier = Modifier.background(Color.Gray))
+        Text("Text 2", modifier = Modifier.background(Color.LightGray))
+        Text("Text 3", modifier = Modifier.background(Color.Gray))
+        Text("Text 4", modifier = Modifier.background(Color.LightGray))
+        Text("Text 5", modifier = Modifier.background(Color.Gray))
+        Text("Text 6", modifier = Modifier.background(Color.LightGray))
     }
 }
 
@@ -119,16 +254,19 @@ fun MyBox() {
         })*/
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Box(modifier = Modifier
-            .width(250.dp)
-            .height(250.dp)
-            .background(Color.DarkGray)
-            .verticalScroll(
-                rememberScrollState()
-            ),
-            contentAlignment = Alignment.Center) {
+        Box(
+            modifier = Modifier
+                .width(250.dp)
+                .height(250.dp)
+                .background(Color.DarkGray)
+                .verticalScroll(
+                    rememberScrollState()
+                ),
+            contentAlignment = Alignment.Center
+        ) {
             Text("Default Text")
         }
     }
+
 }
 
