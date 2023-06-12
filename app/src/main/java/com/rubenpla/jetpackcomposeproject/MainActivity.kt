@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -75,6 +76,8 @@ fun MyComplexLayout() {
             Text(text = "Box 2 Text")
         }
 
+        generateSpacer(heightSize = 150)
+
         Row(
             Modifier
                 .fillMaxWidth()
@@ -117,6 +120,13 @@ fun MyComplexLayout() {
             Text(text = "Box 2 Text")
         }
     }
+}
+
+@Composable
+fun generateSpacer(widthSize: Int = 0, heightSize : Int = 0) {
+    Spacer(modifier = Modifier
+        .width(widthSize.dp)
+        .height(heightSize.dp))
 }
 
 @Composable
