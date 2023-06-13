@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.rubenpla.jetpackcomposeproject.extensions.constraintlayout.linkConstraintTo
 
@@ -93,12 +94,11 @@ fun ConstraintExampleGuide() {
     }
 }
 
-@Preview
 @Composable
 fun ConstraintBarrierExample() {
     ConstraintLayout(Modifier.fillMaxSize()) {
         val (boxRed, boxGreen, boxYellow) = createRefs()
-        val endBarrier = createEndBarrier(boxRed,boxGreen)
+        val endBarrier = createEndBarrier(boxRed, boxGreen)
 
         Box(modifier = Modifier
             .size(125.dp)
@@ -112,7 +112,7 @@ fun ConstraintBarrierExample() {
             .background(Color.Green)
             .constrainAs(boxGreen) {
                 top.linkTo(boxRed.bottom)
-                start.linkTo(parent.start, margin =  32.dp)
+                start.linkTo(parent.start, margin = 32.dp)
             })
 
         Box(modifier = Modifier
@@ -122,5 +122,38 @@ fun ConstraintBarrierExample() {
                 start.linkTo(endBarrier, margin = 8.dp)
             })
     }
+}
 
+@Preview
+@Composable
+fun ConstraintChainExample() {
+    ConstraintLayout(Modifier.fillMaxSize()) {
+        val (boxRed, boxGreen, boxYellow) = createRefs()
+
+        Box(modifier = Modifier
+            .size(75.dp)
+            .background(Color.Red)
+            .constrainAs(boxRed) {
+                start.linkTo(parent.start)
+                end.linkTo(boxGreen.start)
+            })
+
+        Box(modifier = Modifier
+            .size(75.dp)
+            .background(Color.Green)
+            .constrainAs(boxGreen) {
+                start.linkTo(boxRed.end)
+                end.linkTo(boxYellow.start)
+            })
+
+        Box(modifier = Modifier
+            .size(75.dp)
+            .background(Color.Yellow)
+            .constrainAs(boxYellow) {
+                start.linkTo(boxGreen.end)
+                end.linkTo(parent.end)
+            })
+
+        createHorizontalChain(boxRed,boxGreen,boxYellow, chainStyle = ChainStyle.SpreadInside)
+    }
 }
