@@ -22,8 +22,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -51,7 +53,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun stateExample() {
-    var counter = remember {
+    var counter by rememberSaveable {
         mutableStateOf(0)
     }
 
@@ -59,11 +61,11 @@ fun stateExample() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-        Button(onClick = { counter.value += 1 }) {
+        Button(onClick = { counter += 1 }) {
             Text(text = "Pulsar")
         }
 
-        Text(text = "He sido usado ${counter.value} veces")
+        Text(text = "He sido usado $counter veces")
 
     }
 }
